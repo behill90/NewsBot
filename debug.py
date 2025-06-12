@@ -1,8 +1,3 @@
-#!/usr/bin/env python3
-"""
-DEBUG VERSION - Cybersecurity Threat Intelligence Bot
-This version includes extensive debug output to identify issues
-"""
 
 import os
 import json
@@ -16,10 +11,10 @@ from slack_sdk import WebClient
 from slack_sdk.errors import SlackApiError
 from dotenv import load_dotenv
 
-# Load environment variables
+
 load_dotenv()
 
-# Configure logging with more detail
+
 logging.basicConfig(
     level=logging.DEBUG,
     format='%(asctime)s - %(levelname)s - %(message)s'
@@ -28,7 +23,6 @@ logger = logging.getLogger(__name__)
 
 
 def debug_environment():
-    """Debug environment variables and configuration."""
     print("\n" + "=" * 60)
     print("🔍 DEBUGGING ENVIRONMENT")
     print("=" * 60)
@@ -52,7 +46,6 @@ def debug_environment():
 
 
 def test_slack_posting(slack_token, slack_channel):
-    """Test if we can post to Slack."""
     print(f"\n🔍 TESTING SLACK CONNECTION")
     print("=" * 60)
 
@@ -67,7 +60,6 @@ def test_slack_posting(slack_token, slack_channel):
     try:
         client = WebClient(token=slack_token)
 
-        # Test message
         test_message = f"🧪 **DEBUG TEST MESSAGE**\n"
         test_message += f"Timestamp: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
         test_message += f"This is a test from the debug script to verify Slack integration."
@@ -97,11 +89,9 @@ def test_slack_posting(slack_token, slack_channel):
 
 
 def test_feed_fetching():
-    """Test if we can fetch articles from feeds."""
     print(f"\n🔍 TESTING FEED FETCHING")
     print("=" * 60)
 
-    # Test with one simple feed
     test_feed = "https://feeds.feedburner.com/TheHackersNews"
 
     try:
@@ -126,14 +116,11 @@ def test_feed_fetching():
 
 
 def test_tech_stack_filtering():
-    """Test the tech stack filtering logic."""
     print(f"\n🔍 TESTING TECH STACK FILTERING")
     print("=" * 60)
 
-    # Sample tech stack
     tech_stack = {'aws', 'windows', 'linux', 'apache', 'vulnerability', 'malware'}
 
-    # Test articles
     test_articles = [
         {
             'title': 'Critical AWS S3 Vulnerability Discovered',
@@ -173,19 +160,14 @@ def main():
     print("🚀 THREAT INTELLIGENCE BOT - DEBUG MODE")
     print("=" * 60)
 
-    # Step 1: Check environment
     slack_token, slack_channel, claude_key = debug_environment()
 
-    # Step 2: Test Slack
     slack_works = test_slack_posting(slack_token, slack_channel)
 
-    # Step 3: Test feed fetching
     feeds_work = test_feed_fetching()
 
-    # Step 4: Test filtering
     filtering_works = test_tech_stack_filtering()
 
-    # Summary
     print(f"\n🏁 DEBUG SUMMARY")
     print("=" * 60)
     print(f"Environment setup: {'✅' if slack_token and slack_channel else '❌'}")

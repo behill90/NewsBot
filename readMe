@@ -11,9 +11,9 @@ using Anthropic AI and post them into a slack channel.
     ```
 2. Create a .env file and add the following variables
     ```bash
-    slack_bot_token=FOUND IN 1 PASSWORD
-    slack_channel=sec-news
-    anthropic_api_key=FOUND IN 1 PASSWORD
+    slack_bot_token=
+    slack_channel=
+    anthropic_api_key=
     ```
    3. Run the debug script to verify everything is working
     ```bash
@@ -25,3 +25,9 @@ using Anthropic AI and post them into a slack channel.
     ```
 
 Please feel free to iterate and improve on this
+
+
+toDo:
+1. Read from article and not the title of the article
+2. verify accuracy of IOC's and IOA's that are being pulled
+    2a. this can be done by pulling & comparing from mult articles?
